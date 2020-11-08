@@ -1,8 +1,9 @@
 # Casino.js
 > A Web API for play dice, card games, coin flip and roulette.
-
 Casino.js is a easy-to-use web API to handle some popular casino games and hel to implement online casino games.
 
+# API address
+> [https://casino-js.herokuapp.com/](https://casino-js.herokuapp.com/)
 ## Get Started
 
 To start using Casino.js API, you have to get your token for free in our ```/register``` endpoint with your e-mail address,
