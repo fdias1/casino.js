@@ -30,9 +30,17 @@ const rouletteResults = ({value,type}) => {
     return({type,value,odd,even,firstDozen,secondDozen,thirdDozen,red,black,firstHalf,secondHalf})
 }
 
-router.get('/',async (req,res) => {
+router.get('/american',async (req,res) => {
     try {
-        const response = rouletteResults(roulette(req.query.type))
+        const response = rouletteResults(roulette('american'))
+        res.status(200).send({ok:true,payload:response, messagem:null})
+    } catch(err) {
+        res.status(400).send({ok:false,message:err})
+    }
+})
+router.get('/french',async (req,res) => {
+    try {
+        const response = rouletteResults(roulette('french'))
         res.status(200).send({ok:true,payload:response, messagem:null})
     } catch(err) {
         res.status(400).send({ok:false,message:err})
