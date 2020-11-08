@@ -12,8 +12,10 @@ const shuffleCardList = () => {
     const cardList = sort.map(item => shuffle.indexOf(item))
     return cardList
 }
-const drawCards = (cardList,numberOfCards = 1,currentCard) => {
+const cardDraw = (cardList,numberOfCards = 1,currentCard) => {
+    if(numberOfCards<1 || !Number.isInteger(parseInt(numberOfCards))) numberOfCards = 1
     lastCard = parseInt(currentCard)+parseInt(numberOfCards)
+    if (lastCard>52) throw 'Out of cards'
     const cards =  cardList.slice(currentCard,lastCard)
     return cards
 }
@@ -36,16 +38,21 @@ router.get('/new',(req,res,next) => {
     }
 })
 router.get('/draw', (req,res,next) => {
-    const numberOfCards = req.query.cards
-    const deckHash = req.query.deck
-    const {cardList,currentCard} = getDeckFromHash(deckHash)
-    const cards = drawCards(cardList,numberOfCards,currentCard)
-    const newCurrentCard = parseInt(currentCard)+parseInt(numberOfCards)
-    const newDeckHash = getDeckHash(cardList,newCurrentCard)
-    const response = {
-        cards,deckHash:newDeckHash
+    try {
+
+        const numberOfCards = req.query.cards
+        const deckHash = req.query.deck
+        const {cardList,currentCard} = getDeckFromHash(deckHash)
+        const cards = cardDraw(cardList,numberOfCards,currentCard)
+        const newCurrentCard = parseInt(currentCard)+parseInt(numberOfCards)
+        const newDeckHash = getDeckHash(cardList,newCurrentCard)
+        const response = {
+            cards,deckHash:newDeckHash
+        }
+        res.status(200).send({ok:true,message:null,payload:response})
+    } catch(err) {
+        res.status(400).send({ok:true,message:err})
     }
-    res.status(200).send({ok:true,message:null,payload:response})
 })
 
 module.exports = router
