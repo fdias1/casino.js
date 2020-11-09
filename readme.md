@@ -6,7 +6,7 @@ Casino.js is a easy-to-use web API to handle some popular casino games and hel t
 > [https://casino-js.herokuapp.com/](https://casino-js.herokuapp.com/)
 ## Get Started
 
-To start using Casino.js API, you have to get your token for free in our ```/register``` endpoint with your e-mail address,
+To start using Casino.js API, you have to get your token for free in our ```/register``` endpoint. To get that, just ```GET``` ```/register``` like this: ```https://casino-js.herokuapp.com/register?email=name@email.com```.
 Every request must to contain a header named ```token``` with your personal token.
 
 ## Games avaliable
@@ -27,9 +27,9 @@ The ```response``` body will contain an ```payload``` object with the number of 
 
 ### Roulette
 
-A french or american roulette game, the difference between is that american roulette have 36 numbers and 2 "zeros", french roulette have just one "zero". use the HTTP method ```GET``` to ```/roullete/american``` to american roulette or ```/roullete/french``` to french roulette.
+A french or american roulette game, the difference between these 2 games is that american roulette have 36 numbers and 2 "zeros" (38 numbers), french roulette have just one "zero" (37 numbers). use the HTTP method ```GET``` to ```/roullete/american``` to american roulette or ```/roullete/french``` to french roulette.
 
-The ```response``` body will contain an ```payload``` object with the ```value``` that was rolled, and if the number is ```back``` or ```red```, ```odd``` or ```even```, in the ```firstHalf``` or ```secondHalf``` and ```firstDozen```, ```secondDozen``` or ```thirdDozen``` of the table and ```type``` of roullete choosen (```american``` or ```french```).
+The ```response``` body will contain an ```payload``` object with the ```value``` that was rolled, and if the number is ```black``` or ```red```, ```odd``` or ```even```, in the ```firstHalf``` or ```secondHalf```, ```firstDozen```, ```secondDozen``` or ```thirdDozen``` of the table and the ```type``` of roullete choosen (```american``` or ```french```).
 
 
 ### 52-card deck
