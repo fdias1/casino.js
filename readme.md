@@ -3,10 +3,10 @@
 Casino.js is a easy-to-use web API to handle some popular casino games and hel to implement online casino games.
 
 # API address
-> [https://casino-js.herokuapp.com/](https://casino-js.herokuapp.com/)
+> [https://casino-js.herokuapp.com/v1](https://casino-js.herokuapp.com/v1)
 ## Get Started
 
-To start using Casino.js API, you have to get your token for free in our ```/register``` endpoint. To get that, just ```GET``` ```/register``` like this: ```https://casino-js.herokuapp.com/register?email=name@email.com```.
+To start using Casino.js API, you have to get your token for free in our ```/register``` endpoint. To get that, just ```GET``` ```/register``` like this: ```https://casino-js.herokuapp.com/v1/register?email=name@email.com```.
 Every request must to contain a header named ```token``` with your personal token.
 
 ## Games avaliable
