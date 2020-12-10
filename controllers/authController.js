@@ -5,8 +5,8 @@ const secret = process.env.JWT_SECRET
 
 const register = async (req,res,next) => {
     try {
-        const emailRegExp = /^\w+@\w+$/
-        const email = req.query.email
+        const emailRegExp = /^\w+@[\w.]+$/
+        const email = req.body.email
         if(email && emailRegExp.test(email)) {
             const token = await jwt.sign({email:email},secret)
             res.status(400).send({ok:true,message:null,payload:{token}})
@@ -39,7 +39,8 @@ const deserializeUser = async (req,res,next) => {
     }
 }
 
-router.get('/register',register)
+router.post('/register',register)
+
 router.use(auth,deserializeUser)
 
 module.exports = router

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino.js - Get your FREE token</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Casino.js API</h1>
+    </div>
+    <div class="content">
+        <div class="form-wrapper">
+            <h2 class="title">Register</h2>
+            <p>To get your free token, please enter your e-mail address:</p>
+            <form action="/register" method="POST">
+                <label for="email">E-mail Address:</label>
+                <input type="email" name="email" id="email">
+                <button type="submit" id="submit">Get my free token</button>
+            </form>
+        </div>
+        <div id="response" class="response"></div>
+    </div>
+    <footer>
+        <p>Visit Casino.js on <a href="https://github.com/fdias1/casino.js" target="blanc">GitHub</a></p>
+    </footer>
+    <script src="register.js"></script>
+</body>
+</html>
