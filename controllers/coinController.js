@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 
 const coinFlip = (numberOfCoins) => {
+    if (numberOfCoins > 1000) throw 'Too many coins!'
+    
     const result = []
     for (let i=0;i<numberOfCoins;i++) {
         const value = Math.floor(Math.random() * 2)

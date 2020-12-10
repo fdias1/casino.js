@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 
 const rollDice = (numberOfFaces,numberOfDice) => {
+    if (numberOfFaces > 1000) throw 'Too many faces!'
+    if (numberOfDice > 1000) throw 'Too many dice!'
+
     const result = []
     for (let i=0;i<numberOfDice;i++) {
         const value = Math.ceil(Math.random() * numberOfFaces)
